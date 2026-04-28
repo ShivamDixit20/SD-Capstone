@@ -108,28 +108,34 @@ MediVault is a full-stack web application that provides:
 ## Project Structure
 
 ```
-medivault/
-├── src/
-│   ├── frontend/               # React + TypeScript frontend (future)
-│   └── backend/
-│       ├── config/             # DB connection, cloud storage config
-│       ├── controllers/        # Route handler functions
-│       ├── interfaces/         # TypeScript interfaces, enums, DTOs
-│       │   └── index.ts
-│       ├── middleware/         # auth, authorize, error handling
-│       │   └── auth.ts
-│       ├── models/             # OOP class hierarchy + Mongoose schemas
-│       │   ├── User.ts         # Abstract User, Patient, Doctor, UserFactory
-│       │   └── schemas.ts      # Mongoose schemas with discriminators
-│       ├── routes/             # Express route definitions
-│       ├── services/           # Business logic
-│       │   └── AccessStrategy.ts  # Strategy Pattern implementation
-│       └── utils/              # Helper functions
-├── docs/                       # Project documentation
-├── diagrams/                   # Architecture and class diagrams
+MediVault/
+├── .github/workflows/
+├── backend/
+├── dbDesign/
+├── diagrams/
+│   ├── class-diagram/
+│   │   ├── Images/
+│   │   └── Class.md
+│   ├── ER_Diagram/
+│   │   ├── images/
+│   │   └── ER_Diagram.md
+│   ├── Sequential/
+│   │   ├── Images/
+│   │   └── Sequntial.md
+│   ├── Use-Case-Diagram/
+│   │   ├── Images/
+│   │   └── use-case.md
 │   └── README.md
-├── dbDesign/                   # Database design artifacts
-│   └── er-diagram.md           # Mermaid ER diagram
+├── docs/
+├── frontend/
+├── tests/
+├── .env.test
+├── .gitignore
+├── .mocharc.json
+├── jest.config.js
+├── package-lock.json
+├── package.json
+├── playwright.config.js
 └── README.md
 ```
 
@@ -462,7 +468,8 @@ class AccessControl {
 
 ### Class Diagram
 
-![Class Diagram](diagrams/class-diagram.png)
+![Class Diagram](./diagrams/class-diagram/Images/class.png)
+![Class Diagram](./diagrams/class-diagram/Images/class2.png)
 
 > **Extensibility:** Adding `AdminAccessStrategy` or `LabTechnicianAccessStrategy` requires only a new class implementing `IAccessStrategy`. Zero changes to `AccessControl`, zero changes to any controller.
 
@@ -509,8 +516,20 @@ class AccessControl {
 
 ### ER Diagram
 
-![ER Diagram](dbDesign/er-diagram.png)
-> See also: [Mermaid version (renders on GitHub)](dbDesign/er-diagram.md)
+![ER Diagram - Chen Notation](./diagrams/ER_Diagram/images/chen.png)
+![ER Diagram - Crow's Foot Notation](./diagrams/ER_Diagram/images/crowfoot.png)
+
+### Sequential Diagrams
+
+![Sequential Diagram 1](./diagrams/Sequential/Images/1.png)
+![Sequential Diagram 2](./diagrams/Sequential/Images/2.png)
+![Sequential Diagram 3](./diagrams/Sequential/Images/3.png)
+![Sequential Diagram 4](./diagrams/Sequential/Images/4.png)
+
+### Use Case Diagrams
+
+![Use Case Diagram 1](./diagrams/Use-Case-Diagram/Images/image1.png)
+![Use Case Diagram 2](./diagrams/Use-Case-Diagram/Images/image2.png)
 
 ---
 
@@ -570,8 +589,8 @@ git log --oneline --author="<name>"
 
 | Member | Role | Key Responsibilities |
 |--------|------|---------------------|
-| M1 | Lead / Frontend | Project setup, README, React scaffold, routing, integration |
-| M2 | Database / Config | ER diagram, MongoDB config, login/register UI |
-| M3 | Auth / Security | TypeScript interfaces, base classes, auth service (bcrypt + JWT) |
-| M4 | Documents / UX | Class diagrams, document CRUD API, patient dashboard UI |
-| M5 | Access Control / Schemas | Mongoose schemas, RBAC middleware, Strategy Pattern |
+| Shitanshu Singh | Lead / Frontend | Project setup, README, React scaffold, routing, integration |
+| Shivam Dixit | Database / Config | ER diagram, MongoDB config, login/register UI |
+| Krishna Verma | Auth / Security | TypeScript interfaces, base classes, auth service (bcrypt + JWT) |
+| Keshav Goyal | Documents / UX | Class diagrams, document CRUD API, patient dashboard UI |
+| Yash Raghubanshi | Access Control / Schemas | Mongoose schemas, RBAC middleware, Strategy Pattern |
